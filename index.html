@@ -1,72 +1,224 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>David Liu</title>
+  <meta name="author" content="David Liu">
+  <meta name="description" content="David Liu, Ph.D. student at Boston University working on deep learning for audio and music.">
+  <link rel="icon" href="images/favicon/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1d2330;
+      --muted: #5c6574;
+      --line: #e3e6eb;
+      --accent: #1f6a89;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #12161c;
+        --text: #e5e8ed;
+        --muted: #9aa3b0;
+        --line: #2b323c;
+        --accent: #6fb6d2;
+      }
+    }
 
-    <title>David Liu</title>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+    .page { max-width: 760px; margin: 0 auto; padding: 48px 20px 64px; }
 
-    <meta name="author" content="David Liu">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    
-  </head>
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-  <body>
-    <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-      <tr style="padding:0px">
-        <td style="padding:0px">
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr style="padding:0px">
-              <td style="padding:2.5%;width:63%;vertical-align:middle">
-                <p class="name" style="text-align: center;">
-                  David Liu
-                </p>
-                <p>I'm a second year Ph.D student at <a href="https://www.bu.edu/cs/">Boston University</a>, advised by Professor <a href="https://people.bu.edu/bkulis/">Brian Kulis</a>, where my focus is on Audio Deep Learning.
-                </p>
-                <p style="text-align:center">
-                  dcliu3 at bu dot com | <a href="https://github.com/DavidCLiu/" target=”_blank” > Github </a> | <a href="data/CV2.docx (2).pdf" target=”_blank” > Curriculum Vitae  </a>
-                  <!-- add cv-->
-                  
-                </p>
-              </td>
-              <td style="padding:2.5%;width:40%;max-width:40%">
-                <a href="images/david_google.jpg"><img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" alt="profile photo" src="images/david_google.jpg" class="hoverZoomLink"></a>
-              </td>
-            </tr>
+    /* Header */
+    .header { display: flex; align-items: center; gap: 32px; }
+    .header-text { flex: 1; }
+    h1 { font-size: 40px; line-height: 1.1; margin: 0 0 12px; }
+    .header p { margin: 0 0 10px; }
+    .contact { display: flex; flex-wrap: wrap; gap: 6px 20px; margin-top: 14px; }
+    .contact .email { color: var(--muted); }
+    .photo {
+      width: 160px; height: 160px; flex-shrink: 0;
+      border-radius: 50%; object-fit: cover;
+    }
 
-            </tbody></table>
-            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-                <tr>
-                <td style="padding:20px;width:100%;vertical-align:middle">
-                  <h2>Research</h2>
-                  <p>
-                    My research interests lie in the intersection of deep learning and audio processing. I am currently working on computing music features using modern architecture.
-                  </p>
-                  <h2>Workshops</h2>
-                  <p>
-                    I presented a poster at <a href=""></a> on the topic of "Meter Detection: Computing Music Features using Mamba Based Models"
-                  </p>
-                  <h2>Teaching</h2>
-                  <h3>Boston University</h3>
-                  <p>
-                    Teaching Fellow for CS 131: Combinatoric Structures
-                  </p>
-                  <h3>University of Wisconsin - Madison</h3>
-                  <p>
-                    Peer Mentor for Calculus 221, 222, 234 and Discrete Math 240
-                  </p>
-                  <h2>Education</h2>
-                  <h3>Boston University</h3>
-                  <h3> University of Wisconsin - Madison</h3>
-                  <p>
-                    B.S. in Computer Science, Mathematics, and Data Science
-                  </p>
-                  
-                </td>
-              </tr>
-        </td>
-      </tr>
-    </table>
-  </body>
+    /* Sections */
+    h2 {
+      font-size: 22px; margin: 44px 0 16px;
+      padding-bottom: 6px; border-bottom: 1px solid var(--line);
+    }
+    p { margin: 0 0 12px; }
+
+    /* Publications */
+    .pub { margin-bottom: 24px; }
+    .pub-title { font-weight: 600; font-size: 18px; line-height: 1.35; margin: 0 0 4px; }
+    .pub-title a { color: var(--text); }
+    .pub-meta { color: var(--muted); font-size: 15.5px; margin: 0; }
+    .pub-meta strong { color: var(--text); font-weight: 600; }
+    .pub-summary { font-size: 15.5px; margin: 6px 0; }
+    .pub-links { display: flex; gap: 16px; font-size: 15.5px; }
+
+    /* Simple lists (experience, teaching, education) */
+    .item { display: flex; justify-content: space-between; gap: 16px; margin-bottom: 12px; }
+    .item-title { font-weight: 600; }
+    .item-sub { color: var(--muted); font-size: 15.5px; }
+    .item-date { color: var(--muted); font-size: 15.5px; white-space: nowrap; }
+
+    /* Phones */
+    @media (max-width: 600px) {
+      .page { padding: 32px 16px 48px; }
+      .header { flex-direction: column-reverse; align-items: flex-start; gap: 20px; }
+      .photo { width: 112px; height: 112px; }
+      h1 { font-size: 34px; }
+      .item { flex-direction: column; gap: 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+
+    <header class="header">
+      <div class="header-text">
+        <h1>David Liu</h1>
+        <p>
+          I'm a fourth-year Ph.D. student at <a href="https://www.bu.edu/cs/">Boston University</a>,
+          advised by Professor <a href="https://people.bu.edu/bkulis/">Brian Kulis</a>.
+          I work on deep learning for audio and music.
+        </p>
+        <p>In summer 2026, I was a research intern at Dolby Laboratories.</p>
+        <div class="contact">
+          <span class="email">dcliu3 at bu dot edu</span>
+          <a href="https://scholar.google.com/citations?user=jWZ_FVgAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+          <a href="https://github.com/DavidCLiu/" target="_blank" rel="noopener">GitHub</a>
+          <!-- If you rename the CV file to data/cv.pdf, update this link -->
+          <a href="data/David_Liu_CV.docx.pdf" target="_blank" rel="noopener">CV</a>
+        </div>
+      </div>
+      <a href="images/david_google.jpg"><img class="photo" src="images/david_google.jpg" alt="Photo of David Liu"></a>
+    </header>
+
+    <h2>Research</h2>
+    <p>
+      My research is at the intersection of deep learning and audio processing. I'm interested in
+      computing musical features with modern architectures and in building interpretable models for audio synthesis.
+      I've also joined a project on AI for understanding earthquakes, where we build state-space
+      foundation models for raw seismic waveforms.
+    </p>
+
+    <h2>Publications / Presentations</h2>
+
+    <div class="pub">
+      <div>
+        <p class="pub-title">
+          <a href="https://arxiv.org/abs/2610.00642" target="_blank" rel="noopener">Interpretable Destination-Aware Synthesizer Modulation Recovery</a>
+        </p>
+        <p class="pub-meta"><strong>David Liu</strong>, Giulio Cengarle, David Cooper, Mark Vinton, Haici Yang</p>
+        <p class="pub-meta"><em>arXiv preprint</em>, 2026. Under review at ICASSP 2027. Poster at <a href="https://www.saneworkshop.org/sane2026/" target="_blank" rel="noopener">SANE 2026</a>.</p>
+        <p class="pub-summary">
+          Recovers which synthesizer parameters are modulated, the LFO shape for each one, and the
+          oscillator waveform, so a sound can be rebuilt on a real synth. Work from my Dolby internship.
+        </p>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2610.00642" target="_blank" rel="noopener">Paper</a>
+          <a href="https://dolby.box.com/v/dest-aware-MUSHRA" target="_blank" rel="noopener">Audio samples</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div>
+        <p class="pub-title">
+          <a href="https://neurips.cc/virtual/2026/170252" target="_blank" rel="noopener">Are Seismic Foundation Models More Than Glorified Feature Extractors?</a>
+        </p>
+        <p class="pub-meta"><strong>David Liu*</strong>, Laura Laurenti*, Brian Kulis, Men-Andrin Meier, Christopher W. Johnson</p>
+        <p class="pub-meta"><em>NeurIPS 2026 Workshop on AI for Stochastic Dynamics (STODY)</em></p>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div>
+        <p class="pub-title">
+          <a href="https://neurips.cc/virtual/2026/163653" target="_blank" rel="noopener">Does the Foundation-Model Paradigm Transfer to Earthquake Data?</a>
+        </p>
+        <p class="pub-meta">Laura Laurenti*, <strong>David Liu*</strong>, Brian Kulis, Christopher W. Johnson</p>
+        <p class="pub-meta"><em>NeurIPS 2026 Women in Machine Learning (WiML) Workshop</em></p>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div>
+        <p class="pub-title">
+          <a href="https://arxiv.org/abs/2510.24081" target="_blank" rel="noopener">Global PIQA: Evaluating Physical Commonsense Reasoning Across 100+ Languages and Cultures</a>
+        </p>
+        <p class="pub-meta">Tyler A. Chang et al., including <strong>David Liu</strong> (200+ authors)</p>
+        <p class="pub-meta"><em>NeurIPS 2026</em></p>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div>
+        <p class="pub-title">A State-Space Foundation Model for Raw Seismic Waveforms</p>
+        <p class="pub-meta"><strong>David Liu</strong>, Laura Laurenti, Christopher W. Johnson, Brian Kulis</p>
+        <p class="pub-meta"><em>AGU Fall Meeting 2025</em>, New Orleans</p>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div>
+        <p class="pub-title">Meter Detection: Computing Audio Features Using Mamba-Based Models</p>
+        <p class="pub-meta"><strong>David Liu</strong>, Brian Kulis</p>
+        <p class="pub-meta">Poster at <a href="https://www.saneworkshop.org/sane2024/" target="_blank" rel="noopener">SANE 2024</a>.</p>
+        <p class="pub-summary">Estimating musical meter from audio with Mamba-based models.</p>
+        <!-- Add a poster PDF link here if you have one:
+        <div class="pub-links"><a href="data/meter_poster.pdf">Poster</a></div> -->
+      </div>
+    </div>
+
+    <p class="pub-meta">* Equal contribution</p>
+
+    <h2>Experience</h2>
+    <div class="item">
+      <div>
+        <div class="item-title">Dolby Laboratories</div>
+        <div class="item-sub">Research Intern</div>
+      </div>
+      <div class="item-date">Summer 2026</div>
+    </div>
+
+    <h2>Teaching</h2>
+    <p>Teaching Fellow, CS 131 Combinatoric Structures, Boston University</p>
+    <p>Peer Mentor, Calculus and Discrete Math, University of Wisconsin–Madison</p>
+
+    <h2>Education</h2>
+    <div class="item">
+      <div>
+        <div class="item-title">Boston University</div>
+        <div class="item-sub">Ph.D. student</div>
+      </div>
+      <div class="item-date">2023 – present</div>
+    </div>
+    <div class="item">
+      <div>
+        <div class="item-title">University of Wisconsin–Madison</div>
+        <div class="item-sub">B.S. in Computer Science, Mathematics, and Data Science</div>
+      </div>
+      <div class="item-date">2023</div>
+    </div>
+
+  </main>
+</body>
 </html>
